@@ -5,14 +5,155 @@
   |============================
 */
 /* Common styles */
-@import url('./reset.css');
-@import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 24px;
+  list-style: none;
+}
+
+.gallery-item {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Блок інформації під картинкою */
+.info {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 4px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #fafafa;
+}
+
+.info-item {
+  padding: 8px 0;
+}
+
+.info-item .label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.info-item .value {
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* ФОРМА */
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 36px auto 32px;
+}
+
+.form input[type='text'] {
+  padding: 8px 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  width: 240px;
+}
+
+.form input[type='text']:focus {
+  border-color: #4a90e2;
+}
+
+.form button {
+  padding: 10px 20px;
+  background-color: #4e75ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background-color: #6c8cff;
+}
+
+/* LOADER */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.loader.hidden {
+  display: none;
+}
+
+.loader>div {
+  background-color: #4a90e2;
+  height: 15px;
+  width: 15px;
+  margin: 2px;
+  border-radius: 50%;
+  display: inline-block;
+  animation: ball-beat 0.7s infinite linear;
+}
+
+.loader>div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loader>div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes ball-beat {
+  50% {
+    opacity: 0.2;
+    transform: scale(0.75);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.load-more {
+  display: block;
+  margin: 16px auto;
+  padding: 10px 20px;
+  background-color: #4e75ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.load-more:hover {
+  background-color: #6c8cff;
+}
+
+.load-more.hidden {
+  display: none;
+}
